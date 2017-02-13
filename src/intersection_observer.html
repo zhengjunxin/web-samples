@@ -3,24 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            overflow: scroll;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .box {
+            height: 120vh;
+        }
+        .subBox {
+            margin-top: 101vh;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    <header></header>
-    <section>
-        <div class="box">
-            <div class="subBox"></div>
-        </div>
-    </section>
+    <header class="header"></header>
+    <div class="box">
+        <div class="subBox"></div>
+    </div>
     <script>
         window.onload = function() {
+            document.querySelector('body').scrollTop = document.querySelector('body').scrollTop + 11
+            var isVisible = false
+            var $header = document.querySelector('.header')
             var $subBox = document.querySelector('.subBox')
 
+            function isVisible(boundingClientRect, intersectionRect) {
+                return ((intersectionRect.width * intersectionRect.height) /
+                      (boundingClientRect.width * boundingClientRect.height) >= 0.5);
+            }
+
             var io = new IntersectionObserver(
-                entries => {
-                    console.log(entries);
+                (entries, observer) => {
+                    console.log(entries)
+                    isVisible = !isVisible
+                    $header.textContent = isVisible ? '显示中' : '隐藏中'
                 },
                 {
-                    /* Using default options. Details below */
+                    // threshold: [0, 1]
                 }
             );
             // Start observing an element
