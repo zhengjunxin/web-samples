@@ -1,5 +1,7 @@
 # LazyMan
 
+此项目的[示例](https://joezheng2015.github.io/web-samples/src/lazy_man/) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/lazy_man/index.html))  
+
 要求实现一个 LazyMan 函数，可以按照以下方式调用:
 
 > LazyMan(“Hank”)输出  
@@ -24,7 +26,6 @@
 > 
 > 以此类推。
 
-[demo](https://joezheng2015.github.io/web-samples/src/lazy_man/) [source](https://github.com/JoeZheng2015/web-samples/blob/master/src/lazy_man/index.html)
 参考原答案[如何实现一个LazyMan（微信实习面试题）](http://web.jobbole.com/89626/)后，总结学习到的知识点
 
 ## 知识点
