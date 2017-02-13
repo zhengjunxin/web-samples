@@ -1,9 +1,8 @@
 # web-samples
 It will be a repository to demonstrate some web samples.
 
-## How to use it?
-View the samples on the github page or clone to local are both good way.
+## Samples
 
 - [IntersectionObserver](https://joezheng2015.github.io/web-samples/src/intersection_observer.html)
-
-- [Lazy Man](https://joezheng2015.github.io/web-samples/src/lazy_man) ([source](https://joezheng2015.github.io/web-samples/src/lazy_man/index.html))
+             
+- [Lazy Man](https://github.com/JoeZheng2015/web-samples/tree/master/src/lazy_man)
