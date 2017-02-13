@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LazyMan</title>
+</head>
+<body>
+    <h1>请打开控制台查看</h1>
+    <script>
+        function LazyMan(name) {
+            class LZ {
+                constructor(name) {
+                    this.tasks = []
+                    this.sayHi(name)
+                    setTimeout(() => {
+                        this.next()
+                    }, 0)
+                }
+                sayHi(name) {
+                    const fn = name => () => {
+                        console.log(`I am ${name}`)
+                        this.next()
+                    }
+                    this.tasks.push(fn(name))
+
+                    return this
+                }
+                next() {
+                    const fn = this.tasks.shift()
+                    fn && fn()
+                }
+                sleep(time) {
+                    const fn = time => () => setTimeout(() => {
+                        console.log(`Wake up after ${time}`)
+                        this.next()
+                    }, time * 1000)
+                    this.tasks.push(fn(time))
+
+                    return this
+                }
+                eat(food) {
+                    const that = this
+                    const fn = function(food) {
+                        return () => {
+                            console.log(`eat ${food}`)
+                            that.next()
+                        }
+                    }(food)
+                    this.tasks.push(fn)
+
+                    return this
+                }
+                sleepFirst(time) {
+                    const fn = (time => () => setTimeout(() => {
+                        console.log(`Wake up after ${time}`)
+                        this.next()
+                    }, time * 1000))(time)
+                    this.tasks.unshift(fn)
+
+                    return this
+                }
+            }
+            return new LZ(name)
+        }
+
+        LazyMan('haha').sleep(1).eat('apple')
+        // I am haha
+        // after 1 second
+        // Wake up after 1
+        // eat apple
+        LazyMan('gary').sleepFirst(1).eat('banana')
+        // Wake up after 1
+        // I am gary
+        // eat banana
+    </script>
+</body>
+</html>
