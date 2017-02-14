@@ -17,6 +17,8 @@
             top: 0;
             left: 0;
             right: 0;
+            font-size: 48px;
+            text-align: center;
         }
         .box {
             height: 120vh;
@@ -36,28 +38,26 @@
     </div>
     <script>
         window.onload = function() {
-            document.querySelector('body').scrollTop = document.querySelector('body').scrollTop + 11
             var isVisible = false
             var $header = document.querySelector('.header')
             var $subBox = document.querySelector('.subBox')
 
-            function isVisible(boundingClientRect, intersectionRect) {
-                return ((intersectionRect.width * intersectionRect.height) /
-                      (boundingClientRect.width * boundingClientRect.height) >= 0.5);
-            }
+            $header.textContent = isVisible ? '显示中' : '隐藏中'
 
             var io = new IntersectionObserver(
                 (entries, observer) => {
-                    console.log(entries)
-                    isVisible = !isVisible
+                    const {intersectionRatio} = entries[0]
+                    isVisible = intersectionRatio > 0
+
                     $header.textContent = isVisible ? '显示中' : '隐藏中'
                 },
                 {
                     // threshold: [0, 1]
                 }
-            );
+            )
+
             // Start observing an element
-            io.observe($subBox);
+            io.observe($subBox)
 
             // Stop observing an element
             // io.unobserve(element);
