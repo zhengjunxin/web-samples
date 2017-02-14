@@ -1,6 +1,6 @@
 # LazyMan
 
-此项目的[示例](https://joezheng2015.github.io/web-samples/src/lazy_man/) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/lazy_man/index.html))  
+项目[示例](https://joezheng2015.github.io/web-samples/src/lazy_man/) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/lazy_man/index.html))  
 
 要求实现一个 LazyMan 函数，可以按照以下方式调用:
 
