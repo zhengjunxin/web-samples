@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位基于元素边缘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .Position__parent {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            padding: 100px;
+            border: 10px solid rgba(0,0,0,0.5);
+            margin: 100px;
+        }
+        .Position__child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="Position__parent">
+        <div class="Position__child"></div>
+    </div>
+</body>
+</html>
