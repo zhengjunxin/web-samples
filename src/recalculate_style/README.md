@@ -20,7 +20,7 @@ Recalculate Style（样式计算）阶段，可分为两个步骤：匹配选择
 
 其中 rendering 的 Recalculate Style 阶段耗时比较  
 
-|Recalculate Style|影响元素个数|  
+| Recalculate Style | 影响元素个数 |  
 |-------|---------|---------|  
 |优化前|21.84ms|3001|  
 |优化后|10.96ms|1501|
