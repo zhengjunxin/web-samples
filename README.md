@@ -9,4 +9,6 @@ It will be a repository to demonstrate some web samples.
 
 - [Box Reflect](https://github.com/JoeZheng2015/web-samples/tree/master/src/box_reflect)
 
+- [Recalculate Style](https://github.com/JoeZheng2015/web-samples/tree/master/src/recalculate_style)
+
 - [Position absolute](https://github.com/JoeZheng2015/web-samples/tree/master/src/position_absolute)
