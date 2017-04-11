@@ -1,7 +1,7 @@
 # 优化 Recalculate Style 阶段的性能
 
-项目[示例(优化后)](https://joezheng2015.github.io/web-samples/src/recalculate_style/before_optimize.html) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/recalculate_style/index.html))  
-项目[示例(优化前)](https://joezheng2015.github.io/web-samples/src/recalculate_style/) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/recalculate_style/index.html))
+项目[示例(优化前)](https://joezheng2015.github.io/web-samples/src/recalculate_style/before_optimize.html) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/recalculate_style/index.html))  
+项目[示例(优化后)](https://joezheng2015.github.io/web-samples/src/recalculate_style/) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/recalculate_style/index.html))
 
 Recalculate Style（样式计算）阶段，可分为两个步骤：匹配选择器、根据选择器计算样式。所以有两种途径优化性能：
 - 减少选择器复杂度
