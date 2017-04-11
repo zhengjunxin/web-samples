@@ -23,3 +23,9 @@ Recalculate Style（样式计算）阶段，可分为两个步骤：匹配选择
 |优化前|21.84ms|3001|  
 |优化后|10.96ms|1501|  
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
