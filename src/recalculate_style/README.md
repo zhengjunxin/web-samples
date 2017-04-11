@@ -11,13 +11,13 @@ Recalculate Style（样式计算）阶段，可分为两个步骤：匹配选择
 - 使用 BEM 选择器 `.main__box--gary` 替换复杂的选择器 `body.toggled main .box-container .box:nth-child(2n)`
 - 使用 JS 找出第偶数个元素，减少受影响的元素
 
-优化对比
-|        |scripting|rendering|总计|
+优化对比  
+|       |scripting|rendering|总计|
 |-------|---------|---------|--------|
 |优化前(ms)|     2.2    |   44.3      |46.5|
 |优化后(ms)|     3.9    |   36.2      |40.1|
 
-其中 rendering 的 Recalculate Style 阶段耗时比较
+其中 rendering 的 Recalculate Style 阶段耗时比较  
 |Recalculate Style|影响元素个数|
 |-------|---------|---------|
 |优化前|21.84ms|3001|
