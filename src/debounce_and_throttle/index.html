@@ -37,18 +37,24 @@
             const $text = $('.width')
             const $debounce = $('.debounce')
             const $throttle = $('.throttle')
-            const originCallback = () => setWidth($text)
-            const debounceCallback = () => debounceSetWidth($text)
-            const throttleCallback = () => throttleSetWidth($text)
+            let type = 'default'
+            const METHOD = {
+                'default': setWidth,
+                'debounce': debounceSetWidth,
+                'throttle': throttleSetWidth,
+            }
+
 
             setWidth($text)
-            window.onresize = originCallback
-
+            window.addEventListener('resize', () => {
+                const method = METHOD[type]
+                method($text)
+            }, false)
             $debounce.addEventListener('click', function() {
-                window.onresize = this.checked ? debounceCallback : originCallback
+                type = this.checked ? 'debounce' : 'default'
             }, false)
             $throttle.addEventListener('click', function() {
-                window.onresize = this.checked ? throttleCallback : originCallback
+                type = this.checked ? 'throttle' : 'default'
             }, false)
         }, false)
     </script>
