@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>节流函数应用场景比较</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            margin: 20px;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+        .debounce,
+        .throttle {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>屏幕宽度为：<span class="width"></span></div>
+    <div class="flex"><input type="checkbox" class="debounce">使用 debounce 函数</div>
+    <div class="flex"><input type="checkbox" class="throttle">使用 throttle 函数</div>
+    <script src="lodash.min.js"></script>
+    <script>
+        const WAIT = 100
+        const setWidth = el => el.textContent = window.innerWidth
+        const debounceSetWidth = _.debounce(setWidth, WAIT)
+        const throttleSetWidth = _.throttle(setWidth, WAIT)
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const $ = el => document.querySelector(el)
+            const $text = $('.width')
+            const $debounce = $('.debounce')
+            const $throttle = $('.throttle')
+            const originCallback = () => setWidth($text)
+            const debounceCallback = () => debounceSetWidth($text)
+            const throttleCallback = () => throttleSetWidth($text)
+
+            setWidth($text)
+            window.onresize = originCallback
+
+            $debounce.addEventListener('click', function() {
+                window.onresize = this.checked ? debounceCallback : originCallback
+            }, false)
+            $throttle.addEventListener('click', function() {
+                window.onresize = this.checked ? throttleCallback : originCallback
+            }, false)
+        }, false)
+    </script>
+</body>
+</html>
