@@ -37,18 +37,18 @@
             const $text = $('.width')
             const $debounce = $('.debounce')
             const $throttle = $('.throttle')
-            let type = 'default'
-            const METHOD = {
+            const callbacks = {
                 'default': setWidth,
                 'debounce': debounceSetWidth,
                 'throttle': throttleSetWidth,
             }
+            let type = 'default'
 
 
             setWidth($text)
             window.addEventListener('resize', () => {
-                const method = METHOD[type]
-                method($text)
+                const callback = callbacks[type]
+                callback($text)
             }, false)
             $debounce.addEventListener('click', function() {
                 type = this.checked ? 'debounce' : 'default'
