@@ -12,3 +12,6 @@ It will be a repository to demonstrate some web samples.
 - [Recalculate Style](https://github.com/JoeZheng2015/web-samples/tree/master/src/recalculate_style)
 
 - [Position absolute](https://github.com/JoeZheng2015/web-samples/tree/master/src/position_absolute)
+
+- [Debounce and Throttle](https://github.com/JoeZheng2015/web-samples/tree/master/src/debounce_and_throttle)
+
