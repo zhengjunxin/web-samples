@@ -28,7 +28,10 @@
     <script src="lodash.min.js"></script>
     <script>
         const WAIT = 100
-        const setWidth = el => el.textContent = window.innerWidth
+        const setWidth = el => {
+            console.log('-')
+            el.textContent = window.innerWidth
+        }
         const debounceSetWidth = _.debounce(setWidth, WAIT)
         const throttleSetWidth = _.throttle(setWidth, WAIT)
 
