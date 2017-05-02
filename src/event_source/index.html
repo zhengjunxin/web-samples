@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>EventSource</title>
+</head>
+<body>
+    <div class="message"></div>
+    <script>
+        const $message = document.querySelector('.message')
+        const es = new EventSource('/message')
+        es.onmessage = function(e) {
+            // 打印服务器推送的信息
+            const date = new Date(+e.data)
+            $message.textContent = `来自服务器的时间：${date}`
+        }
+        es.addEventListener("####", function(e) {// 事件类型可以随你定义
+          console.log('####:', e.data)
+        }, false)
+    </script>
+</body>
+</html>
