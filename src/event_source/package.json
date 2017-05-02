@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app.js",
+    "cors": "node src_cors/app.js"
   },
   "author": "",
   "license": "ISC",
