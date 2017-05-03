@@ -14,7 +14,7 @@
 var markerRegEx = /[MmLlSsQqLlHhVvCcSsQqTtAaZz]/g;
 var digitRegEx = /-?[0-9]*\.?\d+/g;
 
-function svgPathToCommands(str) {
+export default function svgPathToCommands(str) {
     var results = []; 
     var match; while ((match = markerRegEx.exec(str)) !== null) { results.push(match); };
     return results

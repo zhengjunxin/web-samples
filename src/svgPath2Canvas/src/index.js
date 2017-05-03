@@ -1,4 +1,7 @@
-class SvgPath2Canvas {
+import svgPathToCommands from './svgPathToCommands'
+import drawSvgPath from './drawSvgPath'
+
+export default class SvgPath2Canvas {
     constructor({width, height}) {
         this.canvas = document.createElement('canvas')
         this.ctx = this.canvas.getContext('2d')

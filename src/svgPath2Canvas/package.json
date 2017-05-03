@@ -1,0 +1,20 @@
+{
+  "name": "svg2canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "keywords": [
+    "svg",
+    "canvas"
+  ],
+  "author": "joezheng",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^0.41.6",
+    "rollup-watch": "^3.2.2"
+  }
+}

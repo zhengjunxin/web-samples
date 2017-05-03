@@ -1,4 +1,4 @@
-function drawSvgPath(ctx, commandList) {
+export default function drawSvgPath(ctx, commandList) {
     ctx.beginPath();
     var lastPos = [ 0, 0 ]; var pointOne, pointTwo;
 
