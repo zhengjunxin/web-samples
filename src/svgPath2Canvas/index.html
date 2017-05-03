@@ -17,49 +17,32 @@
       <path d="M130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent"/>
     </svg>
     <br>
-    <canvas class="canvas"></canvas>
     <script src="svgPathToCommands.js"></script>
     <script src="drawSvgPath.js"></script>
+    <script src="index.js"></script>
     <script>
         window.onload = function() {
-            const canvas = document.querySelector('.canvas')
-            const ctx = canvas.getContext('2d')
             const svg = document.querySelector('svg')
 
-            const width = svg.getAttribute('width')
-            const height = svg.getAttribute('height')
+            const svgPath2Canvas = new SvgPath2Canvas({
+                width: svg.getAttribute('width'),
+                height: svg.getAttribute('height'),
+            })
 
             const paths = document.querySelectorAll('path')
-            const pixelRatio = window.devicePixelRatio || 1
-            canvas.width = width * pixelRatio
-            canvas.height = height * pixelRatio
+            const attr = [].slice.call(paths).map(path => {
+                const attributes = path.attributes
+                
+                return Object.keys(attributes).reduce((acc, index) => {
+                    const attribute = attributes[index]
+                    acc[attribute.name] = attribute.value
+                    return acc
+                }, {})
+            })
+            
+            const canvas = svgPath2Canvas.draw(attr)
 
-            ctx.scale(pixelRatio, pixelRatio)
-            canvas.style.width = `${width}px`
-            canvas.style.height = `${height}px`
-
-            paths.forEach(drawPath)
-
-            function drawPath(path) {
-                const d = path.getAttribute('d')
-                const fill = path.getAttribute('fill')
-                const stroke = path.getAttribute('stroke')
-                const transform = path.getAttribute('transform')
-                const transformPattern = /(\d+\.?\d+),?\s?(\d+\.?\d+)/g
-                const result = transformPattern.exec(path.getAttribute('transform'))
-                const commands = svgPathToCommands(d)
-                ctx.save();
-
-                ctx.strokeStyle = stroke || fill
-                if (result) {
-                    const [total, translateX, translateY] = result
-                    ctx.translate(+translateX, +translateY)
-                }
-                drawSvgPath(ctx, commands)
-                ctx.fillStyle = fill
-                ctx.fill()
-                ctx.restore();
-            }
+            document.body.appendChild(canvas)
         }
     </script>
 </body>
