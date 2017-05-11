@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>arcTo 原理解析</title>
+</head>
+<body>
+    <canvas class="canvas1"></canvas>
+    <canvas class="canvas2"></canvas>
+    <canvas class="canvas3"></canvas>
+    <canvas class="canvas4"></canvas>
+    <canvas class="canvas5"></canvas>
+    <script>
+        class Canvas {
+            constructor({canvas, width, height}) {
+                this.canvas = canvas
+                this.ctx = canvas.getContext('2d')
+                this.setCanvasSize({width, height})
+            }
+            setCanvasSize({width, height}) {
+                const {canvas, ctx} = this
+                const ratio = window.devicePixelRatio || 1
+
+                canvas.width = width * ratio
+                canvas.height = height * ratio
+                ctx.scale(ratio, ratio)
+                canvas.style.width = `${width}px`
+                canvas.style.height = `${height}px`
+            }
+            drawDemo1() {
+                const {canvas, ctx} = this
+                ctx.strokeStyle = 'black'
+                ctx.beginPath()
+                ctx.moveTo(0, 0)
+                ctx.arcTo(100, 0, 100, 50, 10)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.arc(90, 10, 10, 0, Math.PI * 2)
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+                ctx.fill()
+
+                // 绘制基础点和控制点
+                ctx.fillStyle = 'red'
+                ctx.fillRect(0, 0, 10, 10)
+                ctx.fillRect(100, 0, 10, 10)
+                ctx.fillRect(100, 50, 10, 10)
+            }
+            drawDemo2() {
+                const {canvas, ctx} = this
+                ctx.strokeStyle = 'black'
+                ctx.beginPath()
+                ctx.moveTo(0, 0)
+                ctx.arcTo(100, 0, 100, 50, 50)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.arc(50, 50, 50, 0, Math.PI * 2)
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+                ctx.fill()
+
+                // 绘制基础点和控制点
+                ctx.fillStyle = 'red'
+                ctx.fillRect(0, 0, 10, 10)
+                ctx.fillRect(100, 0, 10, 10)
+                ctx.fillRect(100, 50, 10, 10)
+            }
+            drawDemo3() {
+                const {canvas, ctx} = this
+                ctx.strokeStyle = 'black'
+                ctx.beginPath()
+                ctx.moveTo(100, 0)
+                ctx.arcTo(100, 0, 100, 50, 50)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.arc(50, 50, 50, 0, Math.PI * 2)
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+                ctx.fill()
+
+                // 绘制基础点和控制点
+                ctx.fillStyle = 'red'
+                ctx.fillRect(100, 0, 10, 10)
+                ctx.fillRect(100, 0, 10, 10)
+                ctx.fillRect(100, 50, 10, 10)
+            }
+            drawDemo4() {
+                const {canvas, ctx} = this
+                ctx.strokeStyle = 'black'
+                ctx.beginPath()
+                ctx.moveTo(99, 0)
+                ctx.arcTo(100, 0, 100, 50, 50)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.arc(50, 50, 50, 0, Math.PI * 2)
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+                ctx.fill()
+
+                // 绘制基础点和控制点
+                ctx.fillStyle = 'red'
+                ctx.fillRect(99, 0, 10, 10)
+                ctx.fillRect(100, 0, 10, 10)
+                ctx.fillRect(100, 50, 10, 10)
+            }
+            drawDemo5() {
+                const {canvas, ctx} = this
+                ctx.strokeStyle = 'black'
+                ctx.beginPath()
+                ctx.moveTo(100 - 50, 0)
+                ctx.arcTo(100, 0, 100, 100, 50)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.arc(50, 50, 50, 0, Math.PI * 2)
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+                ctx.fill()
+
+                // 绘制基础点和控制点
+                ctx.fillStyle = 'red'
+                ctx.fillRect(50, 0, 10, 10)
+                ctx.fillRect(100, 0, 10, 10)
+                ctx.fillRect(100, 50, 10, 10)
+            }
+        }
+        window.onload = function() {
+            const $ = selector => document.querySelector(selector)
+            new Canvas({canvas: $('.canvas1'), width: 300, height: 120}).drawDemo1()
+            new Canvas({canvas: $('.canvas2'), width: 300, height: 120}).drawDemo2()
+            new Canvas({canvas: $('.canvas3'), width: 300, height: 120}).drawDemo3()
+            new Canvas({canvas: $('.canvas4'), width: 300, height: 120}).drawDemo4()
+            new Canvas({canvas: $('.canvas5'), width: 300, height: 120}).drawDemo5()
+        }
+    </script>
+</body>
+</html>
