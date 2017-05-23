@@ -16,3 +16,5 @@ It will be a repository to demonstrate some web samples.
 - [Debounce and Throttle](https://github.com/JoeZheng2015/web-samples/tree/master/src/debounce_and_throttle)
 
 - [EventSource](https://github.com/JoeZheng2015/web-samples/tree/master/src/event_source)
+
+- [Round Rect](https://github.com/JoeZheng2015/web-samples/tree/master/src/round_rect)
