@@ -3,7 +3,8 @@ It will be a repository to demonstrate some web samples.
 
 ## Samples
 
-- [IntersectionObserver](https://github.com/JoeZheng2015/web-samples/tree/master/src/intersection_observer.html)
+- [IntersectionObserver]
+(https://github.com/JoeZheng2015/web-samples/tree/master/src/intersection_observer)
              
 - [Lazy Man](https://github.com/JoeZheng2015/web-samples/tree/master/src/lazy_man)
 
