@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>mouseenter 与 mouseover，mouseleave 与 mouseout 事件的对比</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            text-align: center;
+        }
+        .box1,
+        .box3 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .box2,
+        .box4 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <p>outer box enter times: <span class="time1"></span></p>
+        <div class="box1">
+            <div class="box2">
+                mouseenter and mouseleave
+            </div>
+        </div>
+    </section>
+    <section>
+        <p>outer box enter times: <span class="time2"></span></p>
+        <div class="box3">
+            <div class="box4">
+                mouseover and mouseout
+            </div>
+        </div>
+    </section>
+    <script>
+        function $(selector) {
+            return document.querySelector(selector)
+        }
+        Node.prototype.on = function (event, listener, options = false) {
+            this.addEventListener(event, listener, options)
+            return this
+        }
+        function fire(el, color = 'yellow') {
+            el.style.borderColor = color
+            setTimeout(function () {
+                el.style.borderColor = 'black'
+            }, 500)
+        }
+
+        document.on('DOMContentLoaded', function (e) {
+            const $box1 = $('.box1')
+            const $box2 = $('.box2')
+            const $box3 = $('.box3')
+            const $box4 = $('.box4')
+            const $time1 = $('.time1')
+            const $time2 = $('.time2')
+
+            let times1 = 0
+            let times2 = 0
+            
+            $time1.textContent = times1
+            $time2.textContent = times2
+
+            $box1
+                .on('mouseenter', function (e) {
+                    times1++
+                    $time1.textContent = times1
+                    fire(this, 'yellow')
+                })
+                .on('mouseleave', function (e) {
+                    fire(this, 'yellow')
+                })
+
+            $box2
+                .on('mouseenter', function (e) {
+                    fire(this, 'yellow')
+                })
+                .on('mouseleave', function (e) {
+                    fire(this, 'yellow')
+                })
+
+            $box3
+                .on('mouseover', function (e) {
+                    times2++
+                    $time2.textContent = times2
+                    fire(this, 'yellow')
+                })
+                .on('mouseout', function (e) {
+                    fire(this, 'yellow')
+                })
+
+            $box4
+                .on('mouseover', function (e) {
+                    fire(this, 'yellow')
+                })
+                .on('mouseout', function (e) {
+                    fire(this, 'yellow')
+                })
+        })
+    </script>
+</body>
+
+</html>
