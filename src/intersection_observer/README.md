@@ -1,6 +1,6 @@
 # IntersectionObserver API 介绍
 
-项目[示例](https://joezheng2015.github.io/web-samples/src/intersection_observer/) ([源文件](https://github.com/JoeZheng2015/web-samples/blob/master/src/intersection_observer/index.html))
+项目[示例](https://zhengjunxin.github.io/web-samples/src/intersection_observer/) ([源文件](https://github.com/zhengjunxin/web-samples/blob/master/src/intersection_observer/index.html))
 
 用途：用于获得指定 dom 元素相对其他元素的位置。可以用于如：广告展示的检测、懒加载的检测
 好处：
