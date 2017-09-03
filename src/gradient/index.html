@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            text-align: center;
+        }
+
+        .c1 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .c2 {
+            width: 300px;
+            height: 150px;
+            background-image: radial-gradient(circle closest-side at 50px 50px, #000, #fff 25px, #000);
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: top center;
+            margin: 0 auto;
+        }
+
+        .c3 {
+            width: 300px;
+            height: 150px;
+            background-image: radial-gradient(25px at 50px 50px, #000, #fff, #000 50px);
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: top center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <p>渐变从圆心1(50, 50, 0)开始到圆心2(50, 50, 50)，渐变颜色从白色到黑色</p>
+        <canvas class="c1" width="100" height="100"></canvas>
+    </section>
+    <section>
+        <p>使用 CSS 的 radial-gradient() 做放射性渐变。指定起始点为 (50px, 50px)</p>
+        <div class="c2"></div>
+    </section>
+    <section>
+            <p>使用 CSS 的 radial-gradient() 做放射性渐变。指定起始圆为在 (50px, 50px) 半径为 25px 的圆</p>
+        <div class="c3"></div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const $ = selector => document.querySelector(selector)
+
+            const c1 = $('.c1')
+            const ctx1 = c1.getContext('2d')
+            const canvasGradient1 = ctx1.createRadialGradient(50, 50, 0, 50, 50, 50)
+            canvasGradient1.addColorStop(0, '#000')
+            canvasGradient1.addColorStop(0.5, '#fff')
+            canvasGradient1.addColorStop(1, '#000')
+            ctx1.fillStyle = canvasGradient1
+            ctx1.fillRect(0, 0, 100, 100)
+        })
+    </script>
+</body>
+
+</html>
