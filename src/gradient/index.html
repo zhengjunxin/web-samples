@@ -14,9 +14,11 @@
 
         section {
             text-align: center;
+            margin-top: 20px;
         }
 
-        .c1 {
+        .c1,
+        .c5 {
             width: 100px;
             height: 100px;
         }
@@ -40,6 +42,18 @@
             background-position: top center;
             margin: 0 auto;
         }
+
+        .c4 {
+            border-top: 1px solid rgba(0, 0, 0, 0.5);
+            border-right: 1px solid rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            width: 300px;
+            height: 150px;
+            background-image: linear-gradient(90deg, #000 0px, transparent 1px), linear-gradient(180deg, transparent 99px, #000 100px);
+            background-size: 100px 100px;
+            background-position: top center;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
@@ -53,8 +67,16 @@
         <div class="c2"></div>
     </section>
     <section>
-            <p>使用 CSS 的 radial-gradient() 做放射性渐变。指定起始圆为在 (50px, 50px) 半径为 25px 的圆</p>
+        <p>使用 CSS 的 radial-gradient() 做放射性渐变。指定起始圆为在 (50px, 50px) 半径为 25px 的圆</p>
         <div class="c3"></div>
+    </section>
+    <section>
+        <p>使用 linear-gradient 实现方块背景</p>
+        <div class="c4"></div>
+    </section>
+    <section>
+            <p>createLinearGradient 的 color stop 只能是比例</p>
+            <canvas class="c5" width="100" height="100"></canvas>
     </section>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -68,6 +90,16 @@
             canvasGradient1.addColorStop(1, '#000')
             ctx1.fillStyle = canvasGradient1
             ctx1.fillRect(0, 0, 100, 100)
+
+            const c5 = $('.c5')
+            const ctx5 = c5.getContext('2d')
+            const canvasGradient2 = ctx5.createLinearGradient(0, 0, 0, 50, 50)
+
+            canvasGradient2.addColorStop(0, '#000')
+            canvasGradient2.addColorStop(1, '#fff')
+
+            ctx5.fillStyle = canvasGradient2
+            ctx5.fillRect(0, 0, 100, 100)
         })
     </script>
 </body>
