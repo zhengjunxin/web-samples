@@ -19,3 +19,5 @@ It will be a repository to demonstrate some web samples.
 - [EventSource](https://github.com/JoeZheng2015/web-samples/tree/master/src/event_source)
 
 - [Round Rect](https://github.com/JoeZheng2015/web-samples/tree/master/src/round_rect)
+
+- [渐变](https://github.com/JoeZheng2015/web-samples/tree/master/src/gradient)
