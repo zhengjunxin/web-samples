@@ -21,3 +21,5 @@ It will be a repository to demonstrate some web samples.
 - [Round Rect](https://github.com/zhengjunxin/web-samples/tree/master/src/round_rect)
 
 - [渐变](https://github.com/zhengjunxin/web-samples/tree/master/src/gradient)
+
+- [CSS 阻塞同步脚本执行](https://github.com/zhengjunxin/web-samples/tree/master/src/css_block_js_execution)
