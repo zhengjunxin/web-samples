@@ -1,7 +1,7 @@
 # CSS 会阻塞同步脚本的执行
 
 [JS没有被css阻塞的页面](https://zhengjunxin.github.io/web-samples/src/css_block_js_execution/without_css.html)
-[HS被css阻塞的页面](https://zhengjunxin.github.io/web-samples/src/css_block_js_execution/with_css.html)
+[JS被css阻塞的页面](https://zhengjunxin.github.io/web-samples/src/css_block_js_execution/with_css.html)
 
 ## 术语
 

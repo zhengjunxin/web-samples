@@ -9,11 +9,12 @@
 </head>
 
 <body>
-    <h3>没有 CSS，JS 文件会在下载完后直接执行</h3>
-    <p class="time"></p>
+    <p>没有 CSS，JS 文件会在下载完后直接执行</p>
+    <p>JS 在 <span class="time"></span>ms 后执行</p>
     <script>
+        const now = performance.now()
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('.time').textContent = performance.now()
+            document.querySelector('.time').textContent = now
         })
     </script>
 </body>
